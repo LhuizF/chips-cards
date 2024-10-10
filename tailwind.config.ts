@@ -12,6 +12,14 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backgroundImage: {
+        "card-layout": "url('/images/layout.png')",
+        "card-texture": "url('/images/texture-box.png')",
+        "magic": "url('/images/magic.png')",
+        "power": "url('/images/power.png')",
+        "fire": "url('/images/fire.png')",
+        "card-header": "url('/images/card-header.png')",
+      }
     },
   },
   plugins: [],

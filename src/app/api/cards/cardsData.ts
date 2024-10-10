@@ -1,6 +1,6 @@
 type Collection = 'dracomania' | 'mythomania';
 
-export interface Card {
+export interface ICard {
   id: number;
   name: string;
   magic: number;
@@ -9,7 +9,7 @@ export interface Card {
   collection: Collection;
 }
 
-export const dracomaniaCards: Card[] = [
+export const dracomaniaCards: ICard[] = [
   {
     id: 1,
     name: 'Dragão Mestre',
