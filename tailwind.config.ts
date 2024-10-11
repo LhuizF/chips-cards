@@ -19,7 +19,12 @@ const config: Config = {
         "power": "url('/images/power.png')",
         "fire": "url('/images/fire.png')",
         "card-header": "url('/images/card-header.png')",
-      }
+      },
+      fontFamily: {
+        sans: "var(--font-geist-sans)",
+        mono: "var(--font-geist-mono)",
+        'exocet-heavy': "var(--font-exocet-heavy)",
+      },
     },
   },
   plugins: [],
