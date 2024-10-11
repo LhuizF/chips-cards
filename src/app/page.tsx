@@ -1,11 +1,9 @@
 import Image from "next/image";
-import { ICard } from "@/app/api/cards/cardsData";
+import { ICard } from "@/app/api/cardsData";
 import { Card } from "./components/Card";
 
 const fetchCards = async (): Promise<ICard[]> => {
-  const response = await fetch(`${process.env.URL_API}/cards`, {
-    cache: "no-cache",
-  });
+  const response = await fetch(`${process.env.URL_API}/cards`);
 
   const data = await response.json();
   return data;

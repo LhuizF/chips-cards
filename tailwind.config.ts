@@ -27,6 +27,17 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }: { addUtilities: Function; }) {
+      const newUtilities = {
+        '.text-stroke-paint': {
+          '-webkit-text-stroke': '6px #000',
+          'paint-order': 'stroke fill',
+        },
+      };
+
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    }
+  ],
 };
 export default config;
