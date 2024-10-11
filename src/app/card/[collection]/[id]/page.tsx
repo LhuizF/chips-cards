@@ -2,6 +2,8 @@
 import { ICard } from "@/app/api/cardsData";
 import { useEffect, useState } from "react";
 import { Card } from './components/Card';
+import Image from "next/image";
+import { CardLoading } from "@/app/components/CardLoading";
 
 const fetchCard = async (id: string): Promise<ICard> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/card/${id}`);
@@ -24,8 +26,8 @@ export default function CardPage({ params }: any) {
 
   return (
     <div className="w-full h-full flex items-center justify-center">
-      <div style={{ viewTransitionName: `card-${params.id}` }} className="w-[464px] h-[667px] p-7">
-        {card && <Card card={card} id={params.id} />}
+      <div style={{ viewTransitionName: `card-${params.id}` }} className="w-[464px] h-[667px]">
+        {card ? <Card {...card} /> : <CardLoading width={464} height={667} />}
       </div>
     </div>
   );

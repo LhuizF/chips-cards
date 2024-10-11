@@ -2,12 +2,9 @@ import { ICard } from "@/app/api/cardsData";
 import Tilt from "react-parallax-tilt";
 import Image from "next/image";
 
-interface Props {
-  card: ICard;
-  id: string;
-}
 
-export const Card: React.FC<Props> = ({ card, id }) => {
+
+export const Card: React.FC<ICard> = ({ id, name, magic, power, fire }) => {
 
   return (
     <Tilt glareEnable={true} glareMaxOpacity={0.9} glareColor="#fff" glarePosition="bottom" glareBorderRadius="20px" >
@@ -25,18 +22,18 @@ export const Card: React.FC<Props> = ({ card, id }) => {
 
           <div className="bg-card-header bg-contain bg-top bg-no-repeat w-full z-10 h-[158px] relative -top-4 left-7 inner-element">
             <div className="absolute top-6 right-14 flex justify-center w-4">
-              <span className="text-white text-stroke-paint text-[40px]">{card.id}</span>
+              <span className="text-white text-stroke-paint text-[40px]">{id}</span>
             </div>
             <div className="absolute top-6 w-full text-end right-32">
-              <span className="text-white text-stroke-paint text-xl">{card.name}</span>
+              <span className="text-white text-stroke-paint text-xl">{name}</span>
             </div>
           </div>
 
           <div className="absolute top-0 w-full">
             <Image
               className="w-full"
-              src={`/images/cards/${card.id}.png`}
-              alt={card.name}
+              src={`/images/cards/${id}.png`}
+              alt={name}
               width={250}
               height={250}
             />
@@ -45,21 +42,21 @@ export const Card: React.FC<Props> = ({ card, id }) => {
               <div className="w-full box-border flex h-full justify-evenly py-4 px-6 bg-card-texture">
                 <div className="w-1/3 aspect-square flex flex-col justify-center items-center">
                   <div className="bg-magic w-full h-full bg-center bg-contain bg-no-repeat flex flex-col items-center justify-center">
-                    <span className="text-white text-4xl text-stroke-paint">{card.magic}</span>
+                    <span className="text-white text-4xl text-stroke-paint">{magic}</span>
                   </div>
                   <p className="text-xl text-black">Magia</p>
                 </div>
 
                 <div className="w-1/3 aspect-square flex flex-col justify-center items-center">
                   <div className="bg-power w-full h-full bg-center bg-contain bg-no-repeat flex flex-col items-center justify-center">
-                    <span className="text-white text-4xl text-stroke-paint">{card.power}</span>
+                    <span className="text-white text-4xl text-stroke-paint">{power}</span>
                   </div>
                   <p className="text-xl text-black">Força</p>
                 </div>
 
                 <div className="w-1/3 aspect-square flex flex-col justify-center items-center">
                   <div className="bg-fire w-full h-full bg-center bg-contain bg-no-repeat flex flex-col items-center justify-center">
-                    <span className="text-white text-4xl text-stroke-paint">{card.fire}</span>
+                    <span className="text-white text-4xl text-stroke-paint">{fire}</span>
                   </div>
                   <p className="text-xl text-black">Fogo</p>
                 </div>
