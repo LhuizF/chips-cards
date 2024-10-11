@@ -6,9 +6,7 @@ import { Link } from 'next-view-transitions';
 export const Card: React.FC<ICard> = ({ id, name, magic, power, fire, collection }) => {
 
   return (
-    <Link href={`/card/${collection}/${id}`} style={{
-      viewTransitionName: `demo-${id}`,
-    }}>
+    <Link href={`/card/${collection}/${id}`} style={{ viewTransitionName: `card-${id}` }}>
       <div className="relative w-[160px] h-[230px] p-2 font-exocet-heavy select-none" key={id} id={`card-${id}`}>
         <img
           src="/images/layout.png"
@@ -60,47 +58,8 @@ export const Card: React.FC<ICard> = ({ id, name, magic, power, fire, collection
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </Link>
   );
 };
-
-function myTransition(id: number) {
-  const element = document.getElementById(`card-${id}`); // Selecione o elemento que deseja animar
-
-  if (!element) return;
-
-  // Pegamos a posição atual do elemento
-  const rect = element.getBoundingClientRect();
-
-  // Calculamos a translação necessária para mover o elemento para o centro da tela
-  const translateX = window.innerWidth / 2 - rect.left - rect.width / 2;
-  const translateY = window.innerHeight / 2 - rect.top - rect.height / 2;
-
-  // Aplicamos a animação para movê-lo ao centro
-  const animation = element.animate(
-    [
-      {
-        transform: `translate(0, 0) scale(1)`, // Posição e tamanho iniciais
-        opacity: 1,
-      },
-      {
-        transform: `translate(${translateX}px, ${translateY}px) scale(1.5)`, // Movendo para o centro com zoom
-        opacity: 1,
-      }
-    ],
-    {
-      duration: 600,
-      easing: 'ease',
-      fill: 'forwards',
-    }
-  );
-
-  // Esperar a animação terminar antes de concluir a transição
-  animation.onfinish = () => {
-    // Aqui você pode resolver a transição ou continuar o fluxo
-    console.log("Transição concluída");
-  };
-}

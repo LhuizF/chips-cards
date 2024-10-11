@@ -2,7 +2,7 @@
   -webkit-text-stroke: 4px #000;
   paint-order: stroke fill;
 }
-/* relative -top-1 left-2 */
+
 .header {
   position: relative;
   z-index: 10;
