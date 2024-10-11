@@ -25,13 +25,19 @@ const config: Config = {
         mono: "var(--font-geist-mono)",
         'exocet-heavy': "var(--font-exocet-heavy)",
       },
+      backgroundSize: {
+        'full': '100% 100%',
+      },
+      dropShadow: {
+        'card': '0px -5px 5px rgb(122, 88, 14)',
+      }
     },
   },
   plugins: [
     function ({ addUtilities }: { addUtilities: Function; }) {
       const newUtilities = {
         '.text-stroke-paint': {
-          '-webkit-text-stroke': '6px #000',
+          '-webkit-text-stroke': '6px #080c3d',
           'paint-order': 'stroke fill',
         },
       };

@@ -1,5 +1,11 @@
 .text-border {
-  -webkit-text-stroke: 4px #000;
+  -webkit-text-stroke: 3px #080c3d;
+  paint-order: stroke fill;
+}
+
+.text-icon {
+  color: #080c3d;
+  /* -webkit-text-stroke: 1px rgb(155, 130, 61); */
   paint-order: stroke fill;
 }
 

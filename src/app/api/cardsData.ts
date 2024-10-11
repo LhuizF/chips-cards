@@ -15,7 +15,7 @@ export const dracomaniaCards: ICard[] = [
     name: 'Dragão Mestre',
     magic: 22,
     power: 26,
-    fire: 39,
+    fire: 29,
     collection: 'dracomania'
   },
   {
@@ -91,3 +91,5 @@ export const dracomaniaCards: ICard[] = [
     collection: 'dracomania'
   },
 ];
+
+export const fakeAllCArds = [...dracomaniaCards, ...dracomaniaCards, ...dracomaniaCards, dracomaniaCards[0], dracomaniaCards[1]];

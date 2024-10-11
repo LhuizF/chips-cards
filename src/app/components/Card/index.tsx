@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ICard } from "@/app/api/cardsData";
 import './styles.css';
 import { Link } from 'next-view-transitions';
@@ -7,55 +6,64 @@ export const Card: React.FC<ICard> = ({ id, name, magic, power, fire, collection
 
   return (
     <Link href={`/card/${collection}/${id}`} style={{ viewTransitionName: `card-${id}` }}>
-      <div className="relative w-[160px] h-[230px] p-2 font-exocet-heavy select-none" key={id} id={`card-${id}`}>
-        <img
-          src="/images/layout.png"
-          className="w-full h-full absolute top-0 left-0 z-10 rounded"
-          alt="Card"
-        />
+      <div
+        id={`card-${id}`}
+        key={id}
+        className="relative w-[130px] h-[186px] font-exocet-heavy select-none drop-shadow-card">
 
-        <div className="relative top-0 flex flex-col h-full">
-          <div className="bg-card-header bg-cover bg-top bg-no-repeat w-full z-10 h-14 relative -top-1 left-2">
-            <div className="absolute top-[9px] right-[11px] flex justify-center w-4">
-              <span className="text-white text-border">{id}</span>
+        <div className=" absolute bg-card-layout bg-full bg-no-repeat w-full h-full rounded" />
+
+        <div className="absolute w-full p-1 flex justify-end">
+          <div className="bg-card-header bg-contain bg-no-repeat w-[98px] h-10 flex justify-end pr-3" >
+            <div className="absolute right-2 top-[10px] w-4 h-4 flex items-center justify-center">
+              <div className="text-[12px] text-border ">{id}</div>
             </div>
-            <div className="absolute top-[2px] w-[120px] text-center">
-              <span className="text-white text-border text-[9px]">{name}</span>
+            <div className="absolute top-[10px] right-6 w-20">
+              <div className="text-[6px] text-border">{name}</div>
             </div>
           </div>
 
-          <div className="absolute top-0">
-            <Image
-              className="w-full"
+        </div>
+
+
+        {/* conteúdo */}
+        <div className="px-2 py-[5px]">
+          <div>
+            <img
               src={`/images/cards/${id}.png`}
+              className="w-full h-full object-cover"
               alt={name}
-              width={250}
-              height={250}
             />
 
-            <div className="flex-grow w-full">
-              <div className="w-full box-border flex h-full justify-evenly p-1 bg-card-texture">
-                <div className="w-1/4 aspect-square flex flex-col justify-center items-center">
-                  <div className="bg-magic w-full h-full bg-center bg-contain bg-no-repeat flex flex-col items-center justify-center">
-                    <span className="text-white text-border">{magic}</span>
-                  </div>
-                  <p className="text-[8px] text-black">Magia</p>
-                </div>
+          </div>
 
-                <div className="w-1/4 aspect-square flex flex-col justify-center items-center">
-                  <div className="bg-power w-full h-full bg-center bg-contain bg-no-repeat flex flex-col items-center justify-center">
-                    <span className="text-white text-border">{power}</span>
-                  </div>
-                  <p className="text-[8px] text-black">Força</p>
-                </div>
+          <div
+            className="w-full box-border flex justify-evenly items-center bg-card-texture bg-cover p-2"
+            style={{
+              boxShadow: 'inset 0px 4px 10px 1px rgb(77, 64, 14)',
+              borderTop: '2px solid rgb(143, 121, 61)',
+            }}
+          >
 
-                <div className="w-1/4 aspect-square flex flex-col justify-center items-center">
-                  <div className="bg-fire w-full h-full bg-center bg-contain bg-no-repeat flex flex-col items-center justify-center">
-                    <span className="text-white text-border">{fire}</span>
-                  </div>
-                  <p className="text-[8px] text-black">Fogo</p>
-                </div>
+            <div className="w-1/4">
+              <div className="bg-magic aspect-square bg-center bg-contain bg-no-repeat flex items-center justify-center">
+                <div className="text-[10px] text-border">{magic}</div>
               </div>
+              <div className="text-[6px] text-center text-icon">magia</div>
+            </div>
+
+            <div className="w-1/4">
+              <div className="bg-power w-full aspect-square bg-center bg-contain bg-no-repeat flex items-center justify-center">
+                <div className="text-[12px] text-border">{power}</div>
+              </div>
+              <div className="text-[6px] text-center text-icon">força</div>
+            </div>
+
+            <div className="w-1/4">
+              <div className="bg-fire w-full aspect-square bg-center bg-contain bg-no-repeat flex items-center justify-center">
+                <div className="text-[12px] text-border">{fire}</div>
+              </div>
+              <div className="text-[6px] text-center text-icon">fogo</div>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { dracomaniaCards } from "../cardsData";
+import { dracomaniaCards, fakeAllCArds } from "../cardsData";
 
 export async function GET(request: Request) {
 
