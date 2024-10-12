@@ -3,10 +3,7 @@ import { ICard } from "@/app/api/cardsData";
 import { Card } from "./components/Card";
 
 const fetchCards = async (): Promise<ICard[]> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/cards`,
-    {
-      cache: 'no-cache',
-    });
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/cards`);
 
   const data = await response.json();
   return data;
