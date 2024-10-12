@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ICard } from "@/app/api/cardsData";
 import { Card } from "./components/Card";
 

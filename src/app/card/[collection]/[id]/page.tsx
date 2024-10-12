@@ -12,7 +12,7 @@ const fetchCard = async (id: string): Promise<ICard> => {
   return data;
 };
 
-export default function CardPage({ params }: any) {
+export default function CardPage({ params }: { params: { id: string } }) {
   const [card, setCard] = useState<ICard>();
 
   useEffect(() => {
