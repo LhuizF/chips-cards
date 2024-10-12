@@ -24,8 +24,9 @@ export const Card: React.FC<ICard> = ({ id, name, magic, power, fire }) => {
             <div className="absolute top-6 right-14 flex justify-center w-4">
               <span className="text-white text-stroke-paint text-[40px]">{id}</span>
             </div>
-            <div className="absolute top-6 w-full text-end right-32">
-              <span className="text-white text-stroke-paint text-xl">{name}</span>
+            
+            <div className="absolute top-6 right-[110px] text-center w-[268px]">
+              <div className="text-2xl text-stroke-paint text-border">{name}</div>
             </div>
           </div>
 

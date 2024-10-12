@@ -18,7 +18,7 @@ export const Card: React.FC<ICard> = ({ id, name, magic, power, fire, collection
             <div className="absolute right-2 top-[10px] w-4 h-4 flex items-center justify-center">
               <div className="text-[12px] text-border ">{id}</div>
             </div>
-            <div className="absolute top-[10px] right-6 w-20">
+            <div className="absolute top-[10px] right-6 w-20 text-center">
               <div className="text-[6px] text-border">{name}</div>
             </div>
           </div>
