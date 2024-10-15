@@ -1,6 +1,6 @@
 type Collection = 'dracomania' | 'mythomania';
 
-export interface ICard {
+export type ICard = {
   id: number;
   name: string;
   magic: number;

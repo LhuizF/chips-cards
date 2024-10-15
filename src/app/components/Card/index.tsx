@@ -1,4 +1,4 @@
-import { ICard } from "@/app/api/cardsData";
+import { ICard } from "@/app/cardsData";
 import './styles.css';
 import { Link } from 'next-view-transitions';
 

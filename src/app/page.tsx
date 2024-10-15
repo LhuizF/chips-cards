@@ -1,15 +1,11 @@
-import { ICard } from "@/app/api/cardsData";
+'use client';
+
 import { Card } from "./components/Card";
+import { CardBack } from "./components/CardBack";
+import { useGame } from "./hooks/useGame";
 
-const fetchCards = async (): Promise<ICard[]> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/cards`);
-
-  const data = await response.json();
-  return data;
-};
-
-export default async function Home() {
-  const cards = await fetchCards();
+export default function Home() {
+  const { userCards } = useGame();
 
   return (
     <div className="flex flex-col mx-8 py-4 h-screen">
@@ -17,10 +13,8 @@ export default async function Home() {
 
       </div>
 
-      <div className="m-2 flex flex-wrap gap-2 justify-center">
-        {cards.map((card) =>
-          <Card key={card.id} {...card} />
-        )}
+      <div className="m-2 flex flex-wrap gap-2 justify-center max-h-[65%]">
+        {userCards.map((card) => card.isUserCard ? <Card key={card.id} {...card} /> : <CardBack key={card.id} {...card} />)}
       </div >
     </div>
   );

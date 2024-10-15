@@ -1,28 +1,16 @@
 'use client';
-import { ICard } from "@/app/api/cardsData";
-import { useEffect, useState } from "react";
+
+import { ICard } from "@/app/cardsData";
 import { Card } from './components/Card';
 import { CardLoading } from "@/app/components/CardLoading";
 import { Link } from "next-view-transitions";
+import { dracomaniaCards } from '@/app/cardsData';
 
-const fetchCard = async (id: string): Promise<ICard> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/card/${id}`);
+const getCardById = (id: number): ICard | undefined =>
+  dracomaniaCards.find((card) => card.id === id);
 
-  const data = await response.json();
-  return data;
-};
-
-export default function CardPage({ params }: { params: { id: string } }) {
-  const [card, setCard] = useState<ICard>();
-
-  useEffect(() => {
-    const fetchCardData = async () => {
-      const cardData = await fetchCard(params.id);
-      setCard(cardData);
-    };
-
-    fetchCardData();
-  }, []);
+export default function CardPage({ params }: { params: { id: string; }; }) {
+  const card = getCardById(parseInt(params.id));
 
   return (
     <div className="w-full h-full flex items-center justify-center">
