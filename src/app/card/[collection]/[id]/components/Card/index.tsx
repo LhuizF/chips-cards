@@ -1,13 +1,11 @@
-import { ICard } from "@/app/api/cardsData";
+import { ICard } from "@/app/cardsData";
 import Tilt from "react-parallax-tilt";
 import Image from "next/image";
-
-
 
 export const Card: React.FC<ICard> = ({ id, name, magic, power, fire }) => {
 
   return (
-    <Tilt glareEnable={true} glareMaxOpacity={0.9} glareColor="#fff" glarePosition="bottom" glareBorderRadius="20px" >
+    <Tilt className="z-10" glareEnable={true} glareMaxOpacity={0.9} glareColor="#fff" glarePosition="bottom" glareBorderRadius="20px" >
       <div className="relative w-[464px] h-[667px] p-7 font-exocet-heavy select-none">
 
         {/* layout da card */}
@@ -24,7 +22,7 @@ export const Card: React.FC<ICard> = ({ id, name, magic, power, fire }) => {
             <div className="absolute top-6 right-14 flex justify-center w-4">
               <span className="text-white text-stroke-paint text-[40px]">{id}</span>
             </div>
-            
+
             <div className="absolute top-6 right-[110px] text-center w-[268px]">
               <div className="text-2xl text-stroke-paint text-border">{name}</div>
             </div>
